@@ -1,0 +1,15 @@
+server:
+  port: 8081
+
+person:
+  lastName: 李四
+  age: 11
+  boss: false
+  birth: 2001/10/12
+  maps: {k1: v1, k2: v2}
+  lists:
+    - wangwu
+    - lisi
+  dog:
+    name: gou
+    age: 2

@@ -1,0 +1,32 @@
+server:
+  port: 8088
+
+
+spring:
+  profiles:
+    active: prod
+debug: true
+---
+server:
+  port: 8081
+spring:
+  profiles: dev
+---
+server:
+  port: 8085
+spring:
+  profiles: test
+---
+person:
+  lastName: 张三${random.uuid}
+  age: ${random.int[0,100]}
+  boss: false
+  birth: 2001/10/12
+  maps: {k1: v1, k2: v2}
+  lists:
+    - wangwu
+    - lisi
+  dog:
+    name: ${person.lastName:defaultName}_dog
+    age: 2
+
