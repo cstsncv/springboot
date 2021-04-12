@@ -60,7 +60,7 @@
 				<div th:replace="commons/bar::#sidebar(activeUri='emps')"></div>
 
 				<main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
-					<!--需要区分是员工修改还是添加；-->
+					<!--需要区分是员工修改(修改会emp)还是添加；-->
 					<form th:action="@{/emp}" method="post">
 						<!--发送put请求修改员工数据-->
 						<!--
@@ -93,7 +93,7 @@
 							<label>department</label>
 							<!--提交的是部门的id-->
 							<select class="form-control" name="department.id">
-								<option th:value="${dept.id}" th:each="dept:${depts}" th:text="${dept.departmentName}">1</option>
+<!--								<option th:value="${dept.id}" th:each="dept:${depts}" th:text="${dept.departmentName}">1</option>-->
 								<option th:selected="${emp!=null}?${dept.id == emp.department.id}" th:value="${dept.id}" th:each="dept:${depts}" th:text="${dept.departmentName}">1</option>
 							</select>
 						</div>
@@ -110,12 +110,12 @@
 		<!-- Bootstrap core JavaScript
     ================================================== -->
 		<!-- Placed at the end of the document so the pages load faster -->
-		<script type="text/javascript" src="../../static/asserts/js/jquery-3.2.1.slim.min.js"></script>
-		<script type="text/javascript" src="../../static/asserts/js/popper.min.js"></script>
-		<script type="text/javascript" src="../../static/asserts/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="../../static/asserts/js/jquery-3.2.1.slim.min.js" th:src="@{/webjars/jquery/3.3.1/jquery.js}"></script>
+		<script type="text/javascript" src="../../static/asserts/js/popper.min.js" th:src="@{/webjars/popper.js/2.5.4/esm/popper.js}"></script>
+		<script type="text/javascript" src="../../static/asserts/js/bootstrap.min.js" th:src="@{/webjars/bootstrap/4.6.0/js/bootstrap.js}"></script>
 
 		<!-- Icons -->
-		<script type="text/javascript" src="../../static/asserts/js/feather.min.js"></script>
+		<script type="text/javascript" src="../../static/asserts/js/feather.min.js" th:src="@{/asserts/js/feather.min.js}"></script>
 		<script>
 			feather.replace()
 		</script>
