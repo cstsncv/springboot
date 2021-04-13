@@ -1,7 +1,9 @@
 package com.csts.restfulcrud.controller;
 
+import com.csts.restfulcrud.exception.UserNotExistException;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.Arrays;
@@ -17,7 +19,10 @@ public class HelloController {
 
     @ResponseBody
     @RequestMapping("/hello")
-    public String hello(){
+    public String hello(@RequestParam("user") String user){
+        if ("aaa".equals(user)){
+            throw new UserNotExistException();
+        }
         return "hello";
     }
 
