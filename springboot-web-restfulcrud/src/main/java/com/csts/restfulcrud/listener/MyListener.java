@@ -11,6 +11,6 @@ public class MyListener implements ServletContextListener {
 
     @Override
     public void contextDestroyed(ServletContextEvent sce) {
-        System.out.println("contextDestroyed...web应用小号");
+        System.out.println("contextDestroyed...web应用销毁");
     }
 }

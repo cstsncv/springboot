@@ -1,8 +1,10 @@
 package com.csts.restfulcrud.config;
 
 import com.csts.restfulcrud.filter.MyFilter;
+import com.csts.restfulcrud.listener.MyListener;
 import com.csts.restfulcrud.servlet.MyServlet;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
+import org.springframework.boot.web.servlet.ServletListenerRegistrationBean;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -25,5 +27,11 @@ public class MyServerConfig {
         filterRegistrationBean.setFilter(new MyFilter());
         filterRegistrationBean.setUrlPatterns(Arrays.asList("/", "/myServlet"));
         return filterRegistrationBean;
+    }
+
+    @Bean
+    public ServletListenerRegistrationBean myListener(){
+        ServletListenerRegistrationBean servletListenerRegistrationBean = new ServletListenerRegistrationBean(new MyListener());
+        return servletListenerRegistrationBean;
     }
 }
